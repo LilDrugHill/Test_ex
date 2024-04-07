@@ -1,8 +1,6 @@
 from django import template
 from ..models import Menu
-from django.shortcuts import reverse
 from django.utils.safestring import mark_safe
-from django.urls import reverse
 
 register = template.Library()
 
@@ -24,7 +22,9 @@ def render_menu(menu_items, current_path, level=0, target_level=1000):
 
         if (item.children.exists() and
            level <= target_level and
-           ((current_path in item.url) or (item.url in current_path))):
+           ((current_path in item.url) or (item.url in current_path)) and
+           current_path != '/'):
+
             html += render_menu(item.children.all(), current_path, level + 1, target_level)
 
         html += '</li>'

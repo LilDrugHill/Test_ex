@@ -3,11 +3,17 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>{{ menu.title }}</title>
+    <title>Каталог</title>
 </head>
 <body>
 
 {% draw_menu 'tovary' %}
 {% draw_menu 'nedvizh' %}
+
+
+
+
+
+<a href="{% url 'home' %}">Back to the roots</a>
 </body>
 </html>

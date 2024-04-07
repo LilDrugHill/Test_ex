@@ -14,3 +14,11 @@ class Menu(models.Model):
 
     def get_absolute_url(self):
         return reverse('main', kwargs={'menu_slug': self.url})
+
+    def save(self, *args, **kwargs):
+        if self.url[0] != '/':
+            self.url = '/' + self.url
+        if self.url[-1] != '/':
+            self.url = self.url + '/'
+
+        super().save(*args, **kwargs)
