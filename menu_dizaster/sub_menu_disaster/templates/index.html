@@ -1,19 +1,19 @@
+{% load static %}
 {% load menu_tags %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Каталог</title>
+    <link type="text/css" href="{% static 'sub_menu_disaster/css/style.css' %}" rel="stylesheet" />
 </head>
 <body>
-
+<div class="menu">
+    <ul>
+<li><a href="{% url 'home' %}">Главная</a></li>
+</ul>
 {% draw_menu 'tovary' %}
 {% draw_menu 'nedvizh' %}
-
-
-
-
-
-<a href="{% url 'home' %}">Back to the roots</a>
+</div>
 </body>
 </html>

@@ -16,9 +16,9 @@ def render_menu(menu_items, current_path, level=0, target_level=1000):
     html = f'<ul class="level-{level}">'
 
     for item in menu_items:
-        css_class = "it's active" if current_path == item.url else ''
+        css_class = "active" if current_path == item.url else ''
         target_level = level if current_path == item.url else target_level
-        html += f'<li><a href="{item.url}">{item.title} {css_class}</a>'
+        html += f'<li><a class="{css_class}" href="{item.url}">{item.title}</a>'
 
         if (item.children.exists() and
            level <= target_level and
